@@ -103,7 +103,7 @@ module Arbre
         "</#{tag_name}>"
       end
 
-      INDENT_SIZE = 2
+      INDENT_SIZE = 0
 
       def indent(open_tag, child_content, close_tag)
         spaces = ' ' * indent_level * INDENT_SIZE
@@ -119,12 +119,10 @@ module Arbre
           end
         else
           # multiple lines
-          html << spaces << open_tag << "\n"
+          html << spaces << open_tag
           html << child_content # the child takes care of its own spaces
           html << spaces << close_tag
         end
-
-        html << "\n"
 
         html
       end
